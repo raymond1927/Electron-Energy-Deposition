@@ -1,0 +1,35 @@
+#
+# macro file for TestEm18.cc
+#
+/control/verbose 2
+/run/verbose 2
+#
+/testem/det/setMat G4_GALLIUM_ARSENIDE
+/testem/det/setSize 5 mm
+#
+#/testem/phys/addPhysics standard
+#
+/run/setCut 1 mm
+#
+/run/initialize
+#
+/gun/particle e- 
+/gun/energy 18 keV
+#
+/testem/trackSecondaries true
+#
+/analysis/setFileName edep3
+#/analysis/h1/set  1 100 0  1          #step size of primary track
+#/analysis/h1/set  2 100 0 20 keV          #energy continuously deposited along primary track
+#/analysis/h1/set  3 138 0 14 keV      #energy transferred to secondaries due to ionisation
+#/analysis/h1/set  4 138 0 14 keV      #energy transferred to secondaries due to Bremsstrahlung
+/analysis/h1/set  6 138 0 14 keV      #total energy transferred to secondaries
+#/analysis/h1/set  7 1000 0 20 keV	  #total energy lost by primary track
+#/analysis/h1/set  8 100 0 20 keV     #total energy lost by primary track from energy balance
+#/analysis/h1/set  9 138 0 14 keV      #energy continuously deposited along secondary track
+#/analysis/h1/set 10 1000 0 20 keV	  #total energy deposited
+#/analysis/h1/set 11 138 0 14 keV      #energy spectrum of gamma
+#/analysis/h1/set 12 138 0 14 keV      #energy spectrum of e-
+#
+/run/printProgress 10000
+/run/beamOn 100000
